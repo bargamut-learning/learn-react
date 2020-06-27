@@ -9,30 +9,29 @@ class LikeButton extends React.Component {
 
 	render() {
 		if (this.state.liked) {
-			return `You liked this.`;
+			return `You liked comment number ${this.props.commentID}`;
 		}
 
-		// Use JSX
-		return (
-			<button onClick={() => this.setState({ liked: true })}>
-				Like
-			</button>
-		);
-		
-		// instead
 		return React.createElement(
 			`button`,
 			{
 				onClick: () => this.setState({ liked: true })
 			},
-			`Like`
+			`Like for ${this.props.commentID}`
 		);
 	}
 };
 
-const domContainer = document.querySelector(`#like_button_container`);
+const domContainers = document.querySelectorAll(`.like_button_container`);
 
-ReactDOM.render(
-	React.createElement(LikeButton),
-	domContainer
-);
+domContainers.forEach((domContainer) => {
+	const commentID = parseInt(domContainer.dataset.commentid, 10);
+
+	ReactDOM.render(
+		React.createElement(
+			LikeButton,		// element
+			{ commentID } // props
+		),
+		domContainer
+	);
+});

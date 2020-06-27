@@ -7,7 +7,9 @@
 </head>
 
 <body>
-	<div id="like_button_container"></div>
+	<div class="like_button_container" data-commentid="1"></div>
+	<div class="like_button_container" data-commentid="2"></div>
+	<div class="like_button_container" data-commentid="3"></div>
 
 	<!-- Загрузка React -->
 	<!-- Внимание: во время развертывания, замените "development.js" на "production.min.js". -->
@@ -18,35 +20,6 @@
 	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
 	<!-- Загрузка нашего компонента React -->
-	<script type="text/babel">
-		'use strict';
-
-		class LikeButton extends React.Component {
-			constructor(props) {
-				super(props);
-
-				this.state = { liked: false };
-			}
-
-			render() {
-				if (this.state.liked) {
-					return `You liked this.`;
-				}
-
-				return (
-					<button onClick={() => this.setState({ liked: true })}>
-						Like
-					</button>
-				);
-			}
-		};
-
-		const domContainer = document.querySelector(`#like_button_container`);
-
-		ReactDOM.render(
-			React.createElement(LikeButton),
-			domContainer
-		);
-	</script>
+	<script src="like_button.js"></script>
 </body>
 </html>
