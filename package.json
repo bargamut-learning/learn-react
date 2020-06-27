@@ -1,0 +1,9 @@
+{
+  "name": "learn-react",
+  "version": "0.1.0",
+  "description": "Learning project for React",
+  "main": "index.js",
+  "author": "Paul Petrov <paul@bargamut.ru>",
+  "license": "MIT",
+  "private": true
+}
