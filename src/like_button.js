@@ -12,12 +12,11 @@ class LikeButton extends React.Component {
 			return `You liked comment number ${this.props.commentID}`;
 		}
 
-		return React.createElement(
-			`button`,
-			{
-				onClick: () => this.setState({ liked: true })
-			},
-			`Like for ${this.props.commentID}`
+		return (
+			<button onClick={() => this.setState({ liked: true })
+			}>
+				Like for {this.props.commentID}
+			</button>
 		);
 	}
 };
@@ -28,10 +27,7 @@ domContainers.forEach((domContainer) => {
 	const commentID = parseInt(domContainer.dataset.commentid, 10);
 
 	ReactDOM.render(
-		React.createElement(
-			LikeButton,		// element
-			{ commentID } // props
-		),
+		<LikeButton commentID={commentID}/>,
 		domContainer
 	);
 });

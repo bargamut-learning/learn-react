@@ -5,5 +5,13 @@
   "main": "index.js",
   "author": "Paul Petrov <paul@bargamut.ru>",
   "license": "MIT",
-  "private": true
+  "private": true,
+	"scripts": {
+		"babel-process": "babel --watch src --out-dir dest"
+	},
+	"devDependencies": {
+    "@babel/cli": "7.10.3",
+    "@babel/core": "7.10.3",
+    "@babel/preset-react": "7.10.1"
+  }
 }
