@@ -1,19 +1,50 @@
 'use strict';
 
-const Clock = (props) => {
-	return (
-		<div>
-			<h1>Привет, Мир!</h1>
-			<h2>Сейчас {props.date.toLocaleTimeString()}.</h2>
-		</div>
-	);
-};
+class Clock extends React.Component {
+	constructor(props) {
+		super(props);
 
-const tick = () => {
-	ReactDOM.render(
-		<Clock date={new Date()} />,
-		document.getElementById(`root-timer`)
-	);
+		this.state = {
+			date: new Date(),
+		};
+	}
+
+	// LIFECYCLE METHODS
+
+	/**
+	 * First component rendering in DOM - Mounting
+	 * Runs after successful rendering of component in DOM
+	 */
+	componentDidMount() {
+		this.timerID = setInterval(() => this.tick(), 1000);
+	}
+
+	// Removing element from DOM - Unmounting
+	componentWillUnmount() {
+		clearInterval(this.timerID);
+	}
+
+	// LIFECYCLE METHODS ENDS
+
+	tick() {
+		this.setState({
+			date: new Date(),
+		});
+	}
+	
+	render() {
+		const {date} = this.state;
+
+		return (
+			<div>
+				<h1>Привет, Мир!</h1>
+				<h2>Сейчас {date.toLocaleTimeString()}.</h2>
+			</div>
+		);
+	}
 }
 
-setInterval(tick, 1000);
+ReactDOM.render(
+	<Clock />,
+	document.getElementById(`root-timer`)
+);
