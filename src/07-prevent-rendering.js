@@ -1,6 +1,9 @@
 'use strict';
 
 function WarningBanner(props) {
+	// Перывание рендеринга
+	// Не влияет на отработку методов жизненного цикла:
+	// например, метод componentDidUpdate всё равно будет вызван.
 	if (!props.warn) return null;
 
 	return <div className="warning">Предупреждение!</div>;
