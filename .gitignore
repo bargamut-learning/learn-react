@@ -137,3 +137,4 @@ sketch
 
 dest/*
 !dest/index.html
+!dest/style.css
