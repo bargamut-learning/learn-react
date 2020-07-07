@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
 	"scripts": {
-		"babel-process": "babel --watch src --out-dir dest"
+		"babel-process": "babel --watch src --out-dir dest/script"
 	},
 	"devDependencies": {
     "@babel/cli": "7.10.3",
