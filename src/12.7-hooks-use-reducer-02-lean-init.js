@@ -3,8 +3,6 @@
 (() => {
 	const { useReducer } = React;
 
-	const initialState = { count: 0 };
-
 	function init(initialCount) {
 		return { count: initialCount };
 	}
